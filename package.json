@@ -1,27 +1,16 @@
 {
-  "name": "ads-bazaar-frontend",
+  "name": "ads-bazaar",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "pnpm --parallel --filter \"@ads-bazaar/frontend\" --filter \"@ads-bazaar/backend\" dev",
+    "build": "pnpm --filter \"@ads-bazaar/frontend\" build && pnpm --filter \"@ads-bazaar/backend\" build && pnpm --filter \"@ads-bazaar/contracts\" build",
+    "test": "pnpm --filter \"@ads-bazaar/contracts\" test",
+    "lint": "pnpm -r lint",
+    "frontend": "pnpm --filter \"@ads-bazaar/frontend\" dev",
+    "backend": "pnpm --filter \"@ads-bazaar/backend\" dev",
+    "contracts:build": "pnpm --filter \"@ads-bazaar/contracts\" build",
+    "contracts:test": "pnpm --filter \"@ads-bazaar/contracts\" test"
   },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.3"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.3",
-    "@eslint/eslintrc": "^3"
-  }
+  "devDependencies": {}
 }
