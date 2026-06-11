@@ -1,6 +1,6 @@
 import Image from "next/image";
+import { StellarWalletButton } from "./stellar-wallet-button";
 
-const partners = ["Stellar", "Soroban", "SEP-24", "Anchors"];
 
 const heroStats = [
   { value: "0.5%", label: "protocol fee" },
@@ -67,9 +67,7 @@ export default function Home() {
           </div>
 
           <div className="nav-actions">
-            <a href="#connect" className="lime-button">
-              Connect wallet
-            </a>
+            <StellarWalletButton />
           </div>
         </nav>
 
@@ -91,15 +89,6 @@ export default function Home() {
                 <span aria-hidden="true">▶</span>
                 Watch flow
               </a>
-            </div>
-
-            <div className="trusted">
-              <span>Infrastructure direction</span>
-              <div>
-                {partners.map((partner) => (
-                  <strong key={partner}>{partner}</strong>
-                ))}
-              </div>
             </div>
           </div>
 
@@ -217,9 +206,7 @@ export default function Home() {
             AdsBazaar is being built as an open-source reference for creator
             commerce, Soroban escrow, and cross-border stablecoin settlement.
           </p>
-          <a href="#connect" id="connect" className="lime-button large">
-            Connect wallet
-          </a>
+          <StellarWalletButton className="large" />
         </div>
       </section>
     </main>

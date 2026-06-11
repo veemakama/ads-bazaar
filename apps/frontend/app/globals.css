@@ -48,6 +48,15 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+}
+
 .site-shell {
   min-height: 100vh;
   overflow: hidden;
@@ -131,9 +140,11 @@ a:focus-visible {
 .lime-button {
   align-items: center;
   background: linear-gradient(180deg, var(--lime), var(--lime-2));
+  border: 0;
   border-radius: 999px;
   box-shadow: 0 18px 40px rgba(216, 255, 40, 0.18);
   color: #102014;
+  cursor: pointer;
   display: inline-flex;
   font-size: 13px;
   font-weight: 900;
@@ -141,6 +152,11 @@ a:focus-visible {
   min-height: 42px;
   padding: 12px 20px;
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.lime-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 .lime-button.large {
@@ -261,6 +277,66 @@ h3 {
   height: 36px;
   justify-content: center;
   width: 36px;
+}
+
+.wallet-connect {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.wallet-connect.large .lime-button,
+.wallet-connect.large .wallet-chip {
+  min-height: 52px;
+  padding: 15px 28px;
+}
+
+.wallet-connect small {
+  color: #ffd8d8;
+  font-size: 11px;
+  font-weight: 800;
+  left: 50%;
+  line-height: 1.25;
+  max-width: min(260px, 78vw);
+  position: absolute;
+  text-align: center;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+  width: max-content;
+}
+
+.wallet-chip {
+  align-items: center;
+  background: rgba(247, 248, 242, 0.94);
+  border: 1px solid rgba(216, 255, 40, 0.52);
+  border-radius: 999px;
+  box-shadow: 0 18px 40px rgba(216, 255, 40, 0.14);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 144px;
+  padding: 8px 16px;
+}
+
+.wallet-chip span {
+  color: rgba(7, 17, 22, 0.58);
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wallet-chip strong {
+  color: var(--ink);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .trusted {
