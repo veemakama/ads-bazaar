@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { StellarWalletButton, type WalletState } from "./stellar-wallet-button";
 
 type Role = "business" | "creator";
@@ -298,6 +299,7 @@ export function OnboardingFlow({
   buttonLabel = "Get started",
   buttonSize = "default",
 }: OnboardingFlowProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const [step, setStep] = useState<Step>("closed");
   const [role, setRole] = useState<Role | null>(null);
   const [wallet, setWallet] = useState<WalletState | null>(null);
@@ -335,9 +337,16 @@ export function OnboardingFlow({
   }, [role, step, wallet]);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (step === "closed") {
       return;
     }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -346,7 +355,10 @@ export function OnboardingFlow({
     };
 
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [step]);
 
   return (
@@ -362,7 +374,7 @@ export function OnboardingFlow({
         showConnectedWallet={false}
         size={buttonSize}
       />
-      {modal}
+      {isMounted && modal ? createPortal(modal, document.body) : null}
     </>
   );
 }
