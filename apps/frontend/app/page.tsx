@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { OnboardingFlow } from "./onboarding-flow";
+import { StellarWalletButton } from "./stellar-wallet-button";
 
 const heroStats = [
   { value: "0.5%", label: "protocol fee" },
@@ -93,7 +94,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <OnboardingFlow buttonLabel="Connect wallet" />
+            <StellarWalletButton />
           </div>
         </nav>
 
