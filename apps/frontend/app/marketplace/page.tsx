@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { MarketplaceHero } from "@/components/marketplace/marketplace-hero";
@@ -6,6 +7,11 @@ import { MarketplaceGridHeader } from "@/components/marketplace/marketplace-grid
 import { MarketplaceGrid } from "@/components/marketplace/marketplace-grid";
 import { MarketplacePagination } from "@/components/marketplace/marketplace-pagination";
 import { MarketplaceNewsletter } from "@/components/marketplace/marketplace-newsletter";
+
+export const metadata: Metadata = {
+  title: "Marketplace — AdsBazaar",
+  description: "Browse globally funded marketing campaigns secured by smart-escrow on Stellar.",
+};
 
 export default function MarketplacePage() {
   return (

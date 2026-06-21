@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { DashboardHeader } from "@/components/dashboard/business/dashboard-header";
+
+export const metadata: Metadata = {
+  title: "Settings",
+};
 
 export default function BusinessSettingsPage() {
   return (

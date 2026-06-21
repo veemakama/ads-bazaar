@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { campaignDetailMock } from "@/components/marketplace/campaign-detail-data";
@@ -8,6 +9,18 @@ import { CampaignRequirements } from "@/components/marketplace/campaign-requirem
 import { EscrowSidebar } from "@/components/marketplace/escrow-sidebar";
 import { ApplicationForm } from "@/components/marketplace/application-form";
 import { CampaignHelpCard } from "@/components/marketplace/campaign-help-card";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const campaign = campaignDetailMock;
+  return {
+    title: `${campaign.title} — AdsBazaar Marketplace`,
+    description: campaign.brief,
+  };
+}
 
 export default function CampaignDetailPage({
   params,

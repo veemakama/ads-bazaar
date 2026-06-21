@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { DashboardHeader } from '@/components/dashboard/business/dashboard-header';
 import { PayoutsHeader } from '@/components/dashboard/business/payouts-header';
 import { EscrowStatCard } from '@/components/dashboard/business/escrow-stat-card';
@@ -11,6 +12,10 @@ import {
   sorobanContracts,
   transactions,
 } from '@/components/dashboard/business/payouts-data';
+
+export const metadata: Metadata = {
+  title: "Payouts",
+};
 
 export default function BusinessPayoutsPage() {
   return (
