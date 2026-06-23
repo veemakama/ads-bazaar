@@ -121,7 +121,7 @@ export const topCreators: CreatorCard[] = [
     specialty: "Fintech & Macro",
     reach: "1.2M",
     rating: "4.8",
-    avatarPath: "/images/creator-alex.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
   {
     id: "sarah",
@@ -129,7 +129,7 @@ export const topCreators: CreatorCard[] = [
     specialty: "Web3 Gaming",
     reach: "850K",
     rating: "4.9",
-    avatarPath: "/images/creator-sarah.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
   {
     id: "marcus",
@@ -137,7 +137,7 @@ export const topCreators: CreatorCard[] = [
     specialty: "Developer Advocacy",
     reach: "420K",
     rating: "5.0",
-    avatarPath: "/images/creator-marcus.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
   {
     id: "elena",
@@ -145,6 +145,6 @@ export const topCreators: CreatorCard[] = [
     specialty: "Brand Strategy",
     reach: "2.1M",
     rating: "4.7",
-    avatarPath: "/images/creator-elena.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
 ];
