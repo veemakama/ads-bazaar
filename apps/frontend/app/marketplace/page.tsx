@@ -16,13 +16,18 @@ const PAGE_SIZE = 6;
 export default function MarketplacePage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [selectedAsset, setSelectedAsset] = useState("");
+  const [selectedType, setSelectedType] = useState("");
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
-    return marketplaceCampaigns.filter(
-      (c) => query === "" || c.title.toLowerCase().includes(query),
-    );
-  }, [search]);
+    return marketplaceCampaigns.filter((c) => {
+      const matchesSearch = query === "" || c.title.toLowerCase().includes(query);
+      const matchesAsset = selectedAsset === "" || c.currency === selectedAsset;
+      const matchesType = selectedType === "" || c.status === selectedType;
+      return matchesSearch && matchesAsset && matchesType;
+    });
+  }, [search, selectedAsset, selectedType]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -36,6 +41,16 @@ export default function MarketplacePage() {
     setPage(1);
   }
 
+  function handleAssetChange(value: string) {
+    setSelectedAsset(value);
+    setPage(1);
+  }
+
+  function handleTypeChange(value: string) {
+    setSelectedType(value);
+    setPage(1);
+  }
+
   return (
     <>
       <Navbar />
@@ -44,6 +59,10 @@ export default function MarketplacePage() {
         <MarketplaceFilters
           searchValue={search}
           onSearchChange={handleSearchChange}
+          selectedAsset={selectedAsset}
+          onAssetChange={handleAssetChange}
+          selectedType={selectedType}
+          onTypeChange={handleTypeChange}
         />
         <MarketplaceGridHeader count={filtered.length} />
         <MarketplaceGrid campaigns={paged} />

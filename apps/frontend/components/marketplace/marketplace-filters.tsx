@@ -6,9 +6,17 @@ import { quickTags } from "./marketplace-data";
 export function MarketplaceFilters({
   searchValue,
   onSearchChange,
+  selectedAsset,
+  onAssetChange,
+  selectedType,
+  onTypeChange,
 }: {
   searchValue: string;
   onSearchChange: (value: string) => void;
+  selectedAsset: string;
+  onAssetChange: (value: string) => void;
+  selectedType: string;
+  onTypeChange: (value: string) => void;
 }) {
   return (
     <div className="border border-outline-variant bg-surface-container p-6 mt-12">
@@ -37,14 +45,15 @@ export function MarketplaceFilters({
           </label>
           <div className="relative">
             <select
-              disabled
-              title="Coming soon"
-              defaultValue=""
-              className="bg-surface-container-high border border-outline-variant px-4 py-2.5 text-sm text-on-surface w-full appearance-none"
+              value={selectedAsset}
+              onChange={(e) => onAssetChange(e.target.value)}
+              className="bg-surface-container-high border border-outline-variant px-4 py-2.5 text-sm text-on-surface w-full appearance-none cursor-pointer"
             >
-              <option value="" disabled>
-                All Assets
-              </option>
+              <option value="">All Assets</option>
+              <option value="USDC">USDC</option>
+              <option value="XLM">XLM</option>
+              <option value="NGN">NGN</option>
+              <option value="KES">KES</option>
             </select>
             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-on-surface-variant/50 pointer-events-none" />
           </div>
@@ -57,14 +66,13 @@ export function MarketplaceFilters({
           </label>
           <div className="relative">
             <select
-              disabled
-              title="Coming soon"
-              defaultValue=""
-              className="bg-surface-container-high border border-outline-variant px-4 py-2.5 text-sm text-on-surface w-full appearance-none"
+              value={selectedType}
+              onChange={(e) => onTypeChange(e.target.value)}
+              className="bg-surface-container-high border border-outline-variant px-4 py-2.5 text-sm text-on-surface w-full appearance-none cursor-pointer"
             >
-              <option value="" disabled>
-                All Categories
-              </option>
+              <option value="">All Types</option>
+              <option value="funded">Funded</option>
+              <option value="high-priority">High Priority</option>
             </select>
             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-on-surface-variant/50 pointer-events-none" />
           </div>
