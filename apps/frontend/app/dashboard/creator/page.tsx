@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClipboardCheck } from "lucide-react";
-import { DashboardHeader } from "@/components/dashboard/creator/dashboard-header";
+import { DashboardHeader } from "@/components/dashboard/shared/dashboard-header";
 import { StatCard } from "@/components/dashboard/creator/stat-card";
 import { EarningsCard } from "@/components/dashboard/creator/earnings-card";
 import { TrustScoreCard } from "@/components/dashboard/creator/trust-score-card";
