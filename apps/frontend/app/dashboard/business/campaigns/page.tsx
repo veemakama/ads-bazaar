@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { DashboardHeader } from "@/components/dashboard/business/dashboard-header";
 import { DashboardHeader } from "@/components/dashboard/shared/dashboard-header";
 import { CampaignsPageHeader } from "@/components/dashboard/business/campaigns-page-header";
 import { CampaignsStatCards } from "@/components/dashboard/business/campaigns-stat-cards";

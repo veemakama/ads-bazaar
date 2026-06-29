@@ -1,12 +1,5 @@
-import type { Metadata } from "next";
-import { DashboardHeader } from '@/components/dashboard/business/dashboard-header';
 import { DashboardHeader } from '@/components/dashboard/shared/dashboard-header';
-import type { Metadata } from "next";
 import { PayoutsHeader } from '@/components/dashboard/business/payouts-header';
-
-export const metadata: Metadata = {
-  title: "Payouts",
-};
 import { EscrowStatCard } from '@/components/dashboard/business/escrow-stat-card';
 import { WalletAssetsPanel } from '@/components/dashboard/business/wallet-assets-panel';
 import { SorobanContractsSection } from '@/components/dashboard/business/soroban-contracts-section';
@@ -18,10 +11,6 @@ import {
   sorobanContracts,
   transactions,
 } from '@/components/dashboard/business/payouts-data';
-
-export const metadata: Metadata = {
-  title: "Payouts",
-};
 
 export default function BusinessPayoutsPage() {
   return (

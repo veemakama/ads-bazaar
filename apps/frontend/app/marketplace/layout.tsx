@@ -1,9 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Marketplace — AdsBazaar",
-};
-
 export default function MarketplaceLayout({
   children,
 }: {

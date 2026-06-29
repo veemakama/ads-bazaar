@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 "use client";
 
 import { useMemo, useState } from "react";
@@ -13,11 +12,6 @@ import { MarketplaceNewsletter } from "@/components/marketplace/marketplace-news
 import { marketplaceCampaigns } from "@/components/marketplace/marketplace-data";
 
 const PAGE_SIZE = 6;
-
-export const metadata: Metadata = {
-  title: "Marketplace — AdsBazaar",
-  description: "Browse globally funded marketing campaigns secured by smart-escrow on Stellar.",
-};
 
 export default function MarketplacePage() {
   const [search, setSearch] = useState("");
